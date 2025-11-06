@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato & Localização | Cafeteria Meu Refúgio|Bookstore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <button class="menu-toggle"></button>
+            <h1 class="logo"> Cafeteria Meu Refúgio|Bookstore</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="sobre.html">O Refúgio</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Abrir Menu">☰</button> 
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <section class="section contact-hero">
+            <h1>Fale Conosco</h1>
+            <p>Seja para uma reserva, uma dúvida sobre o cardápio ou o horário da biblioteca, estamos à disposição para ajudar.</p>
+        </section>
+
+        <section class="section contact-details">
+            <div class="contact-grid">      
+                <div class="contact-form-container">
+                    <h2>Envie sua Mensagem</h2>
+                    <form id="contact-form" class="simple-form" action= https://formspree.io/f/xanlgkez method="POST">
+                        
+                        <div class="form-group">
+                            <label for="nome">Seu Nome:</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Nome Completo">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Seu Email:</label>
+                            <input type="email" id="email" name="email" required placeholder="email@exemplo.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="assunto">Assunto:</label>
+                            <select id="assunto" name="assunto">
+                                <option value="geral">Dúvida Geral</option>
+                                <option value="reserva">Reserva de Mesa</option>
+                                <option value="parceria">Parceria/Fornecedor</option>
+                                <option value="livro">Doação de Livro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem:</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Digite sua mensagem aqui..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+
+                <div class="info-container">
+                    <h2>Informações Úteis</h2>
+                    
+                    <div class="contact-info-block">
+                        <h3>Horário de Funcionamento</h3>
+                        <ul>
+                            <li>**Segunda a Sexta:** 9:00h às 20:00h</li>
+                            <li>**Sábados e Feriados:** 10:00h às 18:00h</li>
+                            <li>**Domingos:** Fechado</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>Nosso Endereço</h3>
+                        <p>Rua da Paz, 404 - Jardim dos Livros</p>
+                        <p>CEP: 90000-000 | Cidade/Estado</p>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>Outros Contatos</h3>
+                        <p>Telefone: (XX) XXXX-XXXX</p>
+                        <p>WhatsApp: (XX) 9XXXX-XXXX</p>
+                        <p>Email: <a href="mailto:gimenezjosisilva.36@gmail.com">gimenezjosisilva.36@gmail.com</a></p> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section map-location dark-bg">
+            <div class="map-embed-container">
+            
+            </div>
+        </section>
+        <section class="section map-location dark-bg">
+            <h2>Como Chegar</h2>
+            <div class="map-embed-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110191.07721867167!2d-52.41727763320313!3d-31.76189910000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511b81665a3c9b7%3A0xc49666014e36b81d!2sPelotas%2C%20RS!5e0!3m2!1spt-BR!2sbr!4v1660600000000!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <p class="map-note">Clique no mapa para traçar sua rota e venha nos visitar!</p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Cafeteria Meu Refúgio|Bookstore. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,673 @@
+/* Variáveis de Cores */
+:root {
+    --color-primary: #4E342E; /* Marrom Café Profundo */
+    --color-secondary: #A1887F; /* Bege Rosado/Areia */
+    --color-background: #EFEBE9; /* Creme Suave */
+    --color-accent: #558B2F; /* Verde Musgo (Para destaque) */
+    --color-text-light: #f9f9f9; 
+    --color-text-dark: #aca4a4;
+
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Roboto', sans-serif;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+  color: var(--color-text-dark); 
+    background-color: var(--color-background);  
+    line-height: 1.6;
+    min-height: 100vh; /* Garante que o corpo do site tenha altura total */
+}
+
+/* Utilitários */
+.section {
+    padding: 4rem 5%;
+}
+
+.dark-bg {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.dark-bg h2, .dark-bg h3 {
+    color: var(--color-text-light);
+}
+
+/* Tipografia */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+}
+
+h1 {font-size: 3rem;}
+h2 {font-size: 2rem;}
+
+/* Estilos de Botões (Base) */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    border: 2px solid transparent; 
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn.primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.btn.primary:hover {
+    background-color: #3e2723;
+}
+
+.btn.secondary {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+}
+
+.btn.secondary:hover {
+    background-color: #436d24;
+}
+
+.btn.tertiary {
+    background-color: transparent;
+    border-color: var(--color-text-light);
+    color: var(--color-text-light);
+}
+
+.btn.tertiary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Navegação (Header) */
+
+.header {
+    background-color: var(--color-background);
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--color-secondary); 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    white-space: nowrap;
+}
+
+.nav-links a { 
+    text-decoration: none;
+    color: var(--color-primary);
+    padding: 0.5rem 1rem;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+}
+
+/* Estilos para Mobile (Menu Hamburger) */
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 65px; 
+    left: 0;
+    background-color: var(--color-background);
+    z-index: 1000; 
+    border-top: 1px solid var(--color-secondary);
+}
+
+.nav-links.active {
+    display: flex;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links li {
+    list-style: none;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.menu-toggle {
+    display: block; 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-primary);
+    padding: 10px;
+}
+
+/* Media Query: Desktop/Tablets */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        border: none;
+        box-shadow: none;
+    }
+    
+    .nav-links li {
+        padding: 0;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* ----------------------------------------------- */
+/* --- ESTILOS ESPECÍFICOS DA PÁGINA INICIAL (index.html) --- */
+/* ----------------------------------------------- */
+
+/* --- 1. SEÇÃO HERO (BANNER PRINCIPAL) --- */
+
+.hero-section {
+    /* 🚨 CORREÇÃO FINAL: Caminho de imagem ajustado para funcionar corretamente. 
+       Mude 'Captura de Tela (384).jpg' para 'hero-background.jpg' se você renomeou. */
+    background-image: url('../img/hero-background.jpg'); 
+    
+    background-size: cover;       /* Faz a imagem preencher a área, sem distorcer. */
+    background-position: center;  /* Centraliza a imagem. */
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    
+    min-height: 100vh; /* FORÇA o preenchimento da ALTURA total da tela. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 5%;
+    position: relative;
+}
+
+/* Camada escura para melhorar a leitura do texto */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; 
+}
+
+.hero-content {
+    z-index: 2; 
+    max-width: 900px;
+    color: var(--color-text-light); 
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+}
+
+.hero-content p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* --- 2. DESTAQUES RÁPIDOS (COFFEE & BOOK HIGHLIGHTS) --- */
+
+.highlights-grid {
+    padding: 4rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background-color: var(--color-secondary);
+}
+
+.highlight-item {
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+}
+
+.coffee-highlight {
+    background-color: #F8F4F0;
+}
+
+.book-highlight {
+    background-color: #a8877b;
+}
+
+.highlight-item h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+/* --- 3. PRÉVIA SOBRE NÓS --- */
+
+.about-preview {
+    padding: 4rem 5%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* O bloco da imagem */
+.about-image-placeholder {
+    flex: 1; /* Garante que ela ocupe metade do espaço em telas grandes */
+}
+
+/* 🚨 A imagem dentro do bloco: */
+.about-image-placeholder img {
+    width: 100%; /* Preenche todo o bloco */
+    height: auto;
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
+}
+
+/* --- 4. PRODUTOS EM DESTAQUE --- */
+
+.featured-products {
+    padding: 5rem 5%;
+    text-align: center;
+    background-color: var(--color-primary); 
+    color: var(--color-text-light);
+}
+
+.featured-products h2 {
+    color: var(--color-text-light);
+    margin-bottom: 2.5rem;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.featured-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.featured-item h3, .featured-item p {
+    color: var(--color-text-dark);
+}
+
+.featured-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* ----------------------------------------------- */
+/* --- ESTILOS ESPECÍFICOS DO CARDÁPIO --- */
+/* ----------------------------------------------- */
+
+.menu-page {
+    padding: 2rem 5%;
+}
+
+.menu-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Estilização dos Botões de Filtro */
+.menu-filters {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+
+.filter-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.filter-btn:hover {
+    background-color: #8D6E63; 
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-weight: bold;
+}
+
+/* Layout da Lista de Itens do Cardápio */
+#menu-list-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.item-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.item-info h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--color-accent);
+    font-size: 1.1rem;
+}
+
+/* ----------------------------------------------- */
+/* --- ESTILOS ESPECÍFICOS PARA A PÁGINA SOBRE --- */
+/* ----------------------------------------------- */
+
+.about-hero {
+    /* Estilos específicos para a seção "sobre" (evita conjunto de regras vazio) */
+    padding: 4rem 5%;
+    display: block;
+    /* Adicione outras regras necessárias aqui, ex: background-color, text-align, etc. */
+}
+/* ... (outros estilos da seção 'sobre' ) ... */
+
+/* 🚨 NOVO ESTILO: Fundo Terroso Transparente e Agradável */
+.concept-section,
+.library-section {
+    /* Cor base Bege Rosado/Areia (--color-secondary: #A1887F) com baixa opacidade */
+    background-color: rgba(161, 136, 127, 0.15); /* 0.15 é 15% de opacidade */
+    /* Isso cria um fundo que é quase branco, mas com um toque sutil de tom terroso/areia */
+}
+
+/* Opcional: Se quiser que o texto nessas seções seja um pouco mais escuro para contraste */
+.concept-section p,
+.library-section p {
+    color: #302f2f; 
+}
+
+.content-text-image {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.content-text-image.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-block {
+    flex: 1;
+}
+
+.text-block p {
+    margin-bottom: 1.2em;
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+}
+
+.image-block {
+    flex: 1;
+}
+
+.image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
+/* Seção da Galeria (Biblioteca) */
+.library-section {
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 0 15px var(--color-accent);
+}
+
+/* ----------------------------------------------- */
+/* --- ESTILOS ESPECÍFICOS PARA CONTATO --- */
+/* ----------------------------------------------- */
+
+.contact-details {
+    padding: 4rem 5%;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Estilo do Formulário */
+.simple-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Estilo das Informações (Horário, Endereço) */
+.info-container {
+    padding: 20px 0;
+}
+
+.contact-info-block {
+    margin-bottom: 25px;
+    border-left: 3px solid var(--color-secondary);
+    padding-left: 15px;
+}
+
+.contact-info-block h3 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.contact-info-block ul {
+    list-style: none;
+}
+
+/* Seção do Mapa */
+.map-location {
+    padding: 4rem 0; 
+    text-align: center;
+}
+
+.map-embed-container {
+    width: 100%;
+    padding: 20px 0; 
+}
+
+/* ----------------------------------------------- */
+/* --- RESPONSIVIDADE GERAL (Media Queries) --- */
+/* ----------------------------------------------- */
+
+@media (max-width: 900px) {
+    /* PÁGINA INICIAL */
+    .hero-content h1 {
+        font-size: 3rem; 
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    .about-preview {
+        flex-direction: column; 
+    }
+    
+    .about-image-placeholder {
+        order: -1; 
+    }
+
+    .product-grid {
+        flex-direction: column;
+    }
+
+    /* CARDÁPIO */
+    .menu-item {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .item-img {
+        width: 100%;
+        height: 150px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    /* SOBRE/REFÚGIO */
+    .content-text-image, .content-text-image.reverse {
+        flex-direction: column; 
+        gap: 30px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    /* CONTATO */
+    .contact-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .contact-form-container {
+        order: 2; 
+    }
+
+    .info-container {
+        order: 1;
+    }
+}
+
+/* FOOTER */
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 1.5rem 5%;
+    font-size: 0.9rem;
+}
