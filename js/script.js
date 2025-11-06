@@ -227,7 +227,7 @@ const cardapioData = [
     description: "Água com rodelas de pepino, limão e alecrim (cortesia da casa).",
     price: "R$ 0,00",
     category: "bebidas",
-    imageUrl: "agua-saborizada.jpg" 
+    imageUrl: "agua-saborizada.png" 
 },
 ];
 
